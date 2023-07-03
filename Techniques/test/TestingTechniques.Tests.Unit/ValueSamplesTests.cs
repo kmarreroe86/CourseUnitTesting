@@ -64,7 +64,7 @@ namespace TestingTechniques.Tests.Unit
 
             var user = _sut.AppUser;
 
-            user.Should().BeEquivalentTo(expected);
+            user.Should().BeEquivalentTo(expected); // Compares values under the hood
 
         }
 
