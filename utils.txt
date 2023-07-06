@@ -1,1 +1,17 @@
 https://app.dometrain.com/courses/1599935/lectures/36586509
+
+Notes:
+-Fixture: to share context between tests inside the same class
+-Collection Fixture: to share context between multiple tests classes
+    -Create marker class inheriting from ICollectionFixture<TFixture>. See: (TestCollectionFixture)
+    -Create tests classes with collection annotation "Collection" and fixture field. See: (CollectionFixturesBehaviorTests, CollectionFixturesBehaviorTestsAgain)
+
+
+-Code coverage:
+   1-Install the tool: dotnet tool install -g coverlet.console
+   2-Build project:    build project
+   3-Run command:      coverlet .\bin\Debug\net6.0\Project.dll --target "dotnet" --targetargs "test --no-build"
+   3-Run command (exclude namespaces):      coverlet .\bin\Debug\net6.0\Project.dll --target "dotnet" --targetargs "test --no-build" --exclude "[*]Users.Api.Repositories"
+   4-Run command (generate xml report):       dotnet test --collect:"XPlat Code Coverage"
+   5-Install dotnet tool install -g dotnet-reportgenerator-globaltool
+   6- Run command:      reportgenerator -reports: "path_to_xml" -targetdir:"path_to_save_report" -reporttypes:Html
